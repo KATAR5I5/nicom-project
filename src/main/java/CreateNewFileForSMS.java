@@ -51,7 +51,7 @@ public class CreateNewFileForSMS extends CreateNewExelFile {
             }
             if (sheet.equals(oneSheet)) {
                 sms = "День добрый! Мы из Nicom-сервиса. " + name + " Ваш аппарат - " + sortDevice.get(i).getDevice() + " - " + "готов. Оплатить при получнии  необходимо - " + sortDevice.get(i).getPriceToRepair() + "руб. " +
-                        "Оплата производится - НАЛИЧНЫМИ.  Аппарат в данный момент находится на пункте выдачи по адресу: " +
+                        "Оплата производится - НАЛИЧНЫМИ!  Аппарат в данный момент находится на пункте выдачи по адресу: " +
                         "меторо - " + fullAddress.get(0) + ".  " + fullAddress.get(3) + ". Время работы пункта выдачи в " + "будни - " + fullAddress.get(1) + ". В выходные " +
                         "дни - " + fullAddress.get(2) + ".";
             } else if (sheet.equals(twoSheet)) {

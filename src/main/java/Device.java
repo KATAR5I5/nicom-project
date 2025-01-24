@@ -16,8 +16,8 @@ public class Device implements Comparable<Device> {
     boolean isCash;
     boolean isPayment;
 
-    private Double fullpriceToRepair;
-    private Double priceToRepair;
+    private Double fullpriceToRepair = 0.0;
+    private Double priceToRepair = 0.0;
     private String fullTicketNumber;
     private Integer ticketNumber;
 

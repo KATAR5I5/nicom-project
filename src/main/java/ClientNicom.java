@@ -10,6 +10,13 @@ public class ClientNicom {
     private String companyName;
     private Sex sex;
 
+    public ClientNicom(String fullName, String phoneNumberOne) {
+        this.fullName = fullName;
+        if (!phoneNumberOne.isEmpty())
+            normalizePhoneNumber(phoneNumberOne);
+        if (!fullName.isEmpty())
+            normalizeName(fullName);
+    }
     public String getFullName() {
         return fullName;
     }
@@ -38,13 +45,6 @@ public class ClientNicom {
         return phoneNumberTwo;
     }
 
-    public ClientNicom(String fullName, String phoneNumberOne) {
-        this.fullName = fullName;
-        if (!phoneNumberOne.isEmpty())
-            normalizePhoneNumber(phoneNumberOne);
-        if (!fullName.isEmpty())
-            normalizeName(fullName);
-    }
 
     void normalizeName(String name) {
         String[] normalizeName = name.split(" ");

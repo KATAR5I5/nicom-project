@@ -16,7 +16,7 @@ public class CreateNicomObjects implements Runnable{
     private List<ClientNicom> clientsNicom;
     private List<Device> devices;
     private Map<Device, ClientNicom> mapDevice;
-    Path path;
+    private Path path;
 
     public CreateNicomObjects() throws IOException {
         this.path = Path.of("full2.xls");
@@ -24,7 +24,15 @@ public class CreateNicomObjects implements Runnable{
     }
     public CreateNicomObjects(Path path) throws IOException {
         this.path = path;
-        create();
+//        create();
+    }
+    @Override
+    public void run() {
+        try {
+            create();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public List<ClientNicom> getClientsNicom() {
@@ -39,14 +47,6 @@ public class CreateNicomObjects implements Runnable{
         return mapDevice;
     }
 
-    @Override
-    public void run() {
-        try {
-            create();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
     void create() throws IOException {
         clientsNicom = new ArrayList<>();
@@ -60,7 +60,9 @@ public class CreateNicomObjects implements Runnable{
 //      Первая ячейка (0,0) - (rowSTR, columnStart)
 //           r - с 8 строки, 6 ячейка
         int rowStart = 7;
-        int rowEnd = 60;
+//        int rowEnd = 60;
+        int rowEnd = myExcelSheet.getLastRowNum()-1;
+        System.out.println(rowEnd);
         int columnStart = 0;
         System.out.println("Проверь стартовые и конечный ячейки by default: rowStart =" + rowStart + " rowEnd = " + rowEnd);
         for (; rowStart < rowEnd; rowStart++) {

@@ -18,7 +18,7 @@ public class CurrentDepartmenList implements Runnable{
 
     public CurrentDepartmenList() throws IOException {
         path = Path.of("Dep.xlsx");
-        openFileAndFillActualList();
+//        openFileAndFillActualList();
     }
 
     public CurrentDepartmenList(Path path) throws IOException {
